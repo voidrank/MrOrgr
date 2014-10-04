@@ -1,2 +1,50 @@
 DB: mongodb
 port: 20141
+=====================================
+
+app.py:
+	python app.py 
+
+openchat
+	__init__.py
+	config.py (see github.com/lams2135/MekBlog)
+	adminpanel.py 
+	archive.py
+	user.py
+		def login(id)
+			if login success:
+				return id
+			else:
+				return -1
+
+		def register(id):
+			if !check(id):
+				return id
+			else:
+				return -1
+		def user_event(id):
+			if login(id) != -1:
+				pass
+			else:
+				register
+	push_notification.py
+		def push(id):
+			...
+		def condition_push(id, contition)
+			...
+	return_notification.py
+		def return(message):
+			...
+
+
+template: (jinja2)
+	base.html
+	login.html
+	admin.html
+	index.html
+	wechat.html
+	push_notification.json
+
+static:
+	...
+	

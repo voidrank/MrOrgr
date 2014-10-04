@@ -1,0 +1,11 @@
+# json
+
+{
+	"user":{
+		"id":{
+			"register_time":"ttttddmmyyyy",
+			"last_login_time":"ttttddmmyyyy",
+			"nick_name":"123"
+		}
+	}
+}

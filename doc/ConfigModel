@@ -1,0 +1,6 @@
+{
+	"core":{
+		"db":"localhost",
+		"port":"27017"
+	}
+}
