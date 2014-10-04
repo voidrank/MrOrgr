@@ -1,12 +1,14 @@
 import json
+import pymongo
 
-import mekblog.config
+import openchat.config
 
 db_connect = None
 
 def connect():
 	global db_connect
 	global ready
+	conf = openchat.config.setting.core.db
 	try:
 		conn = pymongo.Connection(conf.host.get(), conf.port.get())
 	except KeyError:

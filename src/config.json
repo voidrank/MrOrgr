@@ -1,0 +1,12 @@
+{
+	"core":{
+		"db":{
+			"host":"localhost",
+			"port":27017
+		},
+		"verify":{
+			"token":"fudan-university-science-experiment-1-43446-*()*"
+		}
+		
+	}
+}

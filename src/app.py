@@ -5,16 +5,19 @@ import openchat
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
+openchat.config.load("config.json")
+openchat.db.connect()
 
 @app.route("/we_chat", methods=["GET", "POST"])
 def server():
-	ret = identify()
 	if request.method == "GET":
-		return openchat.security.verify(request.args)
+		return str(openchat.security.verify(request.args))
 	elif request.method == "POST":
-		if openchat.security.verify(request.args) != -1:
-			opechat.return_notification(request.values)
+		if openchat.security.verify(request.args) == 1:
+			return str(opechat.return_notification(request.values))
 
+
+'''
 @app.route("/")
 def index():
 	return render_template("index.html", msg = session)
@@ -32,7 +35,8 @@ def login():
 		return redirect(url_for("admin"))
 	else:
 		return render_template("login.html")
+'''
 
 
-if __name__ == "__main___":
+if __name__ == "__main__":
 	app.run(debug = True)
