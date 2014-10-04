@@ -17,7 +17,7 @@ def verify(args):
 		if tmpStr == signature:
 			return signature["echostr"]
 		else:
-			return None
+			return str(None)
 	except Exception:
-		return None
+		return str(None)
 
