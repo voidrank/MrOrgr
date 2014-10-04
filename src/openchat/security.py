@@ -13,9 +13,9 @@ def verify(args):
 		tmpArr = [token, timestamp, nonce]
 		tmpArr.sort()
 		tmpStr = "".join(tmpArr)
-		tmpStr = hashlib.sha1(tmpStr)
+		tmpStr = hashlib.sha1(tmpStr).hexdigest()
 		if tmpStr == signature:
-			return signature["echostr"]
+			return str(args["echostr"])
 		else:
 			return str(None)
 	except Exception:
