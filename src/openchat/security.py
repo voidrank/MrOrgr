@@ -15,9 +15,9 @@ def verify(args):
 		tmpStr = "".join(tmpArr)
 		tmpStr = hashlib.sha1(tmpStr)
 		if tmpStr == signature:
-			return True
+			return signature["echostr"]
 		else:
-			return False
+			return None
 	except Exception:
-		return False
+		return None
 

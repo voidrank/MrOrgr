@@ -11,7 +11,7 @@ openchat.db.connect()
 @app.route("/we_chat", methods=["GET", "POST"])
 def server():
 	if request.method == "GET":
-		return str(openchat.security.verify(request.args))
+		return openchat.security.verify(request.args)
 	elif request.method == "POST":
 		if openchat.security.verify(request.args) == 1:
 			return str(opechat.return_notification(request.values))
@@ -39,4 +39,4 @@ def login():
 
 
 if __name__ == "__main__":
-	app.run(debug = True)
+	app.run(debug = True, host = "0.0.0.0", port = 80)
