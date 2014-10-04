@@ -19,5 +19,5 @@ def verify(args):
 		else:
 			return str(None)
 	except Exception:
-		return str(None)
+		return "Error"
 
