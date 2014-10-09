@@ -2,6 +2,7 @@
 from flask import *
 import os
 import openchat
+import bson.binary
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
@@ -15,6 +16,19 @@ def server():
 	elif request.method == "POST":
 		if openchat.security.verify(request.args) == 1:
 			return str(opechat.return_notification(request.values))
+		
+@app.route("/upload", methods=["GET", "POST"])
+def upload():
+	if request.method == "POST":
+		f = request.files["uploaded_file"]
+		print f.read()
+		return redirect("/upload")
+	elif request.method == "GET":
+		return render_template("upload_pic.html")	
+
+@app.route("/pic", methods=["GET","POST"])
+def pic_server():
+	pass
 
 
 '''
