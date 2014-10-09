@@ -1,8 +1,11 @@
 # -*- coding:UTF-8 -*-
 from flask import *
 import os
-import openchat
 import bson.binary
+import StringIO
+from PIL import Image
+
+import openchat
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
@@ -16,19 +19,11 @@ def server():
 	elif request.method == "POST":
 		if openchat.security.verify(request.args) == 1:
 			return str(opechat.return_notification(request.values))
-		
-@app.route("/upload", methods=["GET", "POST"])
-def upload():
-	if request.method == "POST":
-		f = request.files["uploaded_file"]
-		print f.read()
-		return redirect("/upload")
-	elif request.method == "GET":
-		return render_template("upload_pic.html")	
 
-@app.route("/pic", methods=["GET","POST"])
-def pic_server():
-	pass
+@app.route("/pic/<file_name>", methods=["GET"])
+def pic_server(file_name):
+	content, mime_type = openchat.image_server.return_pic(file_name)
+	return Response(content, mimetype=mime_type)
 
 
 '''

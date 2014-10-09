@@ -23,7 +23,7 @@ def register(user_id):
 
 	db = openchat.db.db_connect.openchat.user
 	p = db.insert(
-		user_id:{
+		"user_id":{
 			"register_time":datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
 			"last_login_time":datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
 			"nickname":user_id
