@@ -35,6 +35,13 @@ openchat
 	return_notification.py
 		def return(message):
 			...
+	image_server.py
+		def return_pic(file_name):
+			return file "/images/file_name" in binary type
+	
+	weather.py
+		def return_weather():
+			return a json type data(about weather)
 
 
 template: (jinja2)

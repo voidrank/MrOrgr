@@ -3,6 +3,7 @@ from flask import *
 import os
 import bson.binary
 import StringIO
+import xmltodict
 from PIL import Image
 
 import openchat
@@ -18,7 +19,7 @@ def server():
 		return openchat.security.verify(request.args)
 	elif request.method == "POST":
 		if openchat.security.verify(request.args) == 1:
-			return str(opechat.return_notification(request.values))
+			print str(xmltodict.parse(request.values))
 
 @app.route("/pic/<file_name>", methods=["GET"])
 def pic_server(file_name):
