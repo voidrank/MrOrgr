@@ -26,6 +26,10 @@ def pic_server(file_name):
 	content, mime_type = openchat.image_server.return_pic(file_name)
 	return Response(content, mimetype=mime_type)
 
+@app.route("/barrage_live", methods=["GET"])
+def barrage_live():
+	return render_template("barrage_live.html")
+
 
 '''
 @app.route("/")
