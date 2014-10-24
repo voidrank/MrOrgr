@@ -19,7 +19,7 @@ def server():
 		return openchat.security.verify(request.args)
 	elif request.method == "POST":
 		if openchat.security.verify(request.args) == 1:
-			msg = xmltodict.parse(request.values)
+			msg = xmltodict.parse(request.data)
 
 			#messgae save
 			openchat.db.db_connect.openchat.msg.insert(msg)
