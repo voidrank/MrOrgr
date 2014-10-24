@@ -14,8 +14,8 @@ cm.start();
 var d=[];
 d["dur"]=6000;
 function doget() {
-	$.get("a.txt",function(data,status){
-		dd=eval("(" + data + ")");
+	$.get("{{ url_for('ajax_barrage_live')}}",function(data,status){
+		dd=eval(data);
 		for (i=0;i<dd.length;i++) {
 			d["text"]=dd[i];
 			var dp=new ScrollComment(cm,d);

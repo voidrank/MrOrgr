@@ -28,8 +28,12 @@ def pic_server(file_name):
 
 @app.route("/barrage_live", methods=["GET"])
 def barrage_live():
-	return render_template("barrage_live.html")
+	return render_template("barrage_live_2.html")
 
+@app.route("/ajax/barrage_live")
+def ajax_barrage_live():
+	p = ["hahaha","hehehe"]
+	return str(p)
 
 '''
 @app.route("/")
