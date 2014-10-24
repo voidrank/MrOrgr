@@ -7,7 +7,7 @@
 	<script type="text/javascript" src="{{ url_for('static', filename='barrage_live/CommentCoreLibrary.modified.js') }}"></script>
 </head>
 <body>
-	<div class="abp"><div class="container" id="c" style="height:250px;"></div></div>
+	<div class="abp"><div class="container" id="c" style="height:400px;"></div></div>
 <script>
 var cm=new CommentManager(document.getElementById('c'));
 cm.start();
@@ -20,7 +20,7 @@ function doget() {
 			d["text"]=dd[i];
 			var dp=new ScrollComment(cm,d);
 			cm.send(dp);
-			dp.y=25*i;
+			dp.y=25*Math.floor(Math.random()*16);
 		}
 	});
 }

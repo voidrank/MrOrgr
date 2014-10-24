@@ -19,7 +19,13 @@ def server():
 		return openchat.security.verify(request.args)
 	elif request.method == "POST":
 		if openchat.security.verify(request.args) == 1:
-			print str(xmltodict.parse(request.values))
+			msg = xmltodict.parse(request.values)
+
+			#messgae save
+			openchat.db.db_connect.openchat.msg.insert(msg)
+
+			#barrage save
+			openchat.db.db_connect.openchat.barrage.insert(msg)
 
 @app.route("/pic/<file_name>", methods=["GET"])
 def pic_server(file_name):
@@ -32,7 +38,8 @@ def barrage_live():
 
 @app.route("/ajax/barrage_live")
 def ajax_barrage_live():
-	p = ["hahaha","hehehe"]
+	p = list(openchat.db.db_connect.openchat.barrage.find())
+	openchat.db.db_connect.openchat.barrage.remove()
 	return str(p)
 
 '''
