@@ -14,7 +14,7 @@ def verify(args):
 	tmpStr = "%s%s%s" % tmpArr
 	tmpStr = hashlib.sha1(tmpStr).hexdigest()
 	if tmpStr == signature:
-		return str(args["echostr"])
+		return 1
 	else:
 		return "bad man!!!"
 
