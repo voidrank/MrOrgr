@@ -4,6 +4,7 @@ import os
 import bson.binary
 import StringIO
 import xmltodict
+import json
 from PIL import Image
 
 import openchat
@@ -42,7 +43,7 @@ def barrage_live():
 def ajax_barrage_live():
 	p = list(openchat.db.db_connect.openchat.barrage.find())
 	openchat.db.db_connect.openchat.barrage.remove()
-	return str([i['Content'] for i in p])
+	return render_template("ajax_barrage.html", str=json.dumps([i['xml']['Content'] for i in p]))
 
 '''
 @app.route("/")

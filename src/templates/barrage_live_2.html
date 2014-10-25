@@ -15,7 +15,7 @@ var d=[];
 d["dur"]=6000;
 function doget() {
 	$.get("{{ url_for('ajax_barrage_live')}}",function(data,status){
-		dd=eval(data);
+		console.log(data);dd=eval(data);
 		for (i=0;i<dd.length;i++) {
 			d["text"]=dd[i];
 			var dp=new ScrollComment(cm,d);
@@ -24,7 +24,7 @@ function doget() {
 		}
 	});
 }
-setInterval(doget,2000);
+setInterval(doget,500);
 </script>
 </body>
 </html>
