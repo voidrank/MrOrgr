@@ -269,6 +269,7 @@ var CoreComment = (function () {
         }
         if (init.hasOwnProperty("y")) {
             this._y = init["y"];
+			console.log("init:"+this._y);/////
         }
         if (init.hasOwnProperty("shadow")) {
             this._shadow = init["shadow"];
@@ -309,6 +310,8 @@ var CoreComment = (function () {
         }
         if (this._y !== undefined) {
             this.y = this._y;
+			console.log("cmt._y:"+this._y);
+			console.log("cmt.y:"+this.y);////
         }
         if (this._alpha !== 1 || this.parent.options.global.opacity < 1) {
             this.alpha = this._alpha;
@@ -359,6 +362,7 @@ var CoreComment = (function () {
             if (!this.absolute) {
                 return this._y / this.parent.height;
             }
+			console.log(this._y);/////
             return this._y;
         },
         set: function (y) {
@@ -866,6 +870,7 @@ var CommentManager = (function() {
 		}else{
 			var cmt = new CoreComment(this, data);
 		}
+		console.log("created",cmt._y);
 		switch(cmt.mode){
 			case 1:cmt.align = 0;break;
 			case 2:cmt.align = 2;break;
@@ -874,7 +879,8 @@ var CommentManager = (function() {
 			case 6:cmt.align = 1;break;
 		}
 		cmt.init();
-		//data.dom=cmt.dom;
+		console.log("inited"+cmt.y);
+		var tmp = cmt.y;
 		this.stage.appendChild(cmt.dom);
 		switch(cmt.mode){
 			default:
@@ -895,7 +901,8 @@ var CommentManager = (function() {
 				}
 			}break;
 		}
-		cmt.y = cmt.y;
+		console.log("appended"+cmt.y);
+		cmt.y = tmp;
 		this.dispatchEvent("enterComment", cmt);
 		this.runline.push(cmt);
 	};

@@ -42,7 +42,8 @@ def barrage_live():
 @app.route("/barrage_live_admin/<s>", methods=["GET"])
 def barrage_live_admin(s):
 	for i in range(10):
-		openchat.db.db_connect.openchat.barrage.insert({"xml":{"Content":s}})
+		openchat.db.db_connect.openchat.barrage.insert({"xml":{"Content":s},"id":i})
+	return ""
 
 @app.route("/ajax/barrage_live")
 def ajax_barrage_live():
