@@ -874,7 +874,7 @@ var CommentManager = (function() {
 			case 6:cmt.align = 1;break;
 		}
 		cmt.init();
-		data.dom=cmt.dom;
+		//data.dom=cmt.dom;
 		this.stage.appendChild(cmt.dom);
 		switch(cmt.mode){
 			default:
