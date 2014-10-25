@@ -39,6 +39,11 @@ def pic_server(file_name):
 def barrage_live():
 	return render_template("barrage_live_2.html")
 
+@app.route("/barrage_live_admin/<s>", methods=["GET"])
+def barrage_live_admin(s):
+	for i in range(10):
+		openchat.db.db_connect.openchat.barrage.insert({"xml":{"Content":s}})
+
 @app.route("/ajax/barrage_live")
 def ajax_barrage_live():
 	p = list(openchat.db.db_connect.openchat.barrage.find())
